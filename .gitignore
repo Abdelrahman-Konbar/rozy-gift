@@ -1,0 +1,24 @@
+# Dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
+# Local backups and editor-only browser exports
+backups/
+*.local.json
+
+# Do not publish the locally supplied commercial music file without a license.
+public/assets/layla.mp3
+public/assets/Cairokee - Layla Studio Session ليلى - كايروكي من الاستوديو.mp3
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/

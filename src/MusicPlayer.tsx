@@ -1,0 +1,8 @@
+import { Music2, Pause, Play, Volume2, VolumeX } from 'lucide-react'
+import type { MusicSettings } from './data/content'
+type Props = { music: MusicSettings; playing: boolean; muted: boolean; current: number; duration: number; onToggle: () => void; onSeek: (n: number) => void; onMute: () => void; compact?: boolean; missing?: boolean }
+const time = (n: number) => `${Math.floor(n / 60)}:${String(Math.floor(n % 60)).padStart(2, '0')}`
+export function MusicPlayer({ music, playing, muted, current, duration, onToggle, onSeek, onMute, compact, missing }: Props) {
+  if (compact) return <button className="music-fab" onClick={onToggle} aria-label="تشغيل أو إيقاف الأغنية">{playing ? <Pause /> : <Music2 />}</button>
+  return <div className="music-card"><div className="music-copy"><h2>{music.heading}</h2><p>{music.description}</p></div><div className="track"><div className={'cover '+(playing ? 'playing' : '')}><Music2 /></div><div className="track-meta"><b>{music.title || 'أغنية خاصة'}</b><small>{music.artist || '—'}</small></div><button className="round-play" onClick={onToggle} disabled={missing}>{playing ? <Pause /> : <Play />}</button></div>{missing ? <p className="audio-warning">ملف الأغنية غير موجود هنا. أضيفيه إلى <code>public/assets</code> أو ارفعي نسخة محلية من لوحة التعديل.</p> : <div className="track-controls"><span>{time(current)}</span><input aria-label="تقدم الأغنية" type="range" min="0" max={duration || 0} step="0.1" value={Math.min(current, duration || 0)} onChange={e => onSeek(+e.target.value)} /><span>{duration ? time(duration) : '—:—'}</span><button onClick={onMute} aria-label="كتم الصوت">{muted ? <VolumeX size={18} /> : <Volume2 size={18} />}</button></div>}</div>
+}

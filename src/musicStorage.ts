@@ -1,0 +1,6 @@
+const DB = 'rozy-gift-media', STORE = 'audio', KEY = 'custom-song'
+export type StoredSong = { blob: Blob; name: string; size: number; type: string }
+function db(): Promise<IDBDatabase> { return new Promise((resolve, reject) => { const req = indexedDB.open(DB, 1); req.onupgradeneeded = () => req.result.createObjectStore(STORE); req.onsuccess = () => resolve(req.result); req.onerror = () => reject(req.error) }) }
+export async function saveSong(song: StoredSong) { const d = await db(); await new Promise<void>((resolve, reject) => { const r = d.transaction(STORE, 'readwrite').objectStore(STORE).put(song, KEY); r.onsuccess = () => resolve(); r.onerror = () => reject(r.error) }); d.close() }
+export async function getSong(): Promise<StoredSong | undefined> { const d = await db(); const value = await new Promise<StoredSong | undefined>((resolve, reject) => { const r = d.transaction(STORE).objectStore(STORE).get(KEY); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error) }); d.close(); return value }
+export async function removeSong() { const d = await db(); await new Promise<void>((resolve, reject) => { const r = d.transaction(STORE, 'readwrite').objectStore(STORE).delete(KEY); r.onsuccess = () => resolve(); r.onerror = () => reject(r.error) }); d.close() }

@@ -11,7 +11,7 @@ backups/
 
 # Do not publish the locally supplied commercial music file without a license.
 public/assets/layla.mp3
-public/assets/Cairokee - Layla Studio Session ليلى - كايروكي من الاستوديو.mp3
+
 
 # Environment files and secrets
 .env

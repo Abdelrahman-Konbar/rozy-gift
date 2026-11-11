@@ -27,7 +27,7 @@ export const defaultLoveGame: LoveGame = {
   finalEmoji: '🥹❤️', finalTitle: 'خلاص يا ستي، أنا هفضل أحبك برضه 😂❤️', finalText: 'حتى لو اخترتي مش بحبك ألف مرة، ده مش هيغيّر إني بحبك وبختارك كل يوم.', continueButton: 'يلا نكمل حكايتنا 💜', yesEmoji: '🥹❤️', yesText: 'أنا كنت عارف من الأول 😂❤️\n\nوأنا كمان بحبك، أكتر ما تتخيلي.\n\nبس كنت عايز أسمعها منك حتى لو في لعبة 💜', yesContinueButton: 'يلا أوريكي اللي جوا قلبي 💌'
 }
 
-export const defaultMusic: MusicSettings = { title: 'ليلى', artist: 'كايروكي', heading: 'شغّلي الأغنية دي الأول 🎧💜', description: 'واعتبري إن كل جملة بتتقال فيها هي ليكي إنتِ يا سارة ❤️', src: '/assets/layla.mp3' }
+export const defaultMusic: MusicSettings = { title: 'ليلى', artist: 'كايروكي', heading: 'شغّلي الأغنية دي الأول 🎧💜', description: 'واعتبري إن كل جملة بتتقال فيها هي ليكي إنتِ يا سارة ❤️', src: '/assets/Cairokee - Layla Studio Session ليلى - كايروكي من الاستوديو.mp3' }
 
 export const quizResponseDefaults = [
   { correctMessage: 'واضح إنك مركزة في حكايتنا 😄❤️', wrongMessage: 'قريبة، بس فكري في أول انطباع بجد.' },
